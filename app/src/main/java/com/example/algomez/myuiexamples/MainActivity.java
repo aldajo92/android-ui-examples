@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,6 +45,10 @@ public class MainActivity extends AppCompatActivity implements MainListAdapter.R
     switch (position){
       case 0:
         i = PendulumActivity.getIntent(this);
+        startActivity(i);
+        break;
+      case 1:
+        i = JoystickActivity.getIntent(this);
         startActivity(i);
         break;
     }
