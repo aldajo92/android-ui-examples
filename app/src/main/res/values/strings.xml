@@ -1,3 +1,5 @@
 <resources>
   <string name="app_name">MyUIExamples</string>
+  <string name="offset_text">offset: %.3f</string>
+  <string name="degree_text">degree: %.3f</string>
 </resources>

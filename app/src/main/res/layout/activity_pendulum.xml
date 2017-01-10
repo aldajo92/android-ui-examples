@@ -12,7 +12,7 @@
     tools:context="com.example.algomez.myuiexamples.MainActivity"
     >
 
-  <com.example.algomez.myuiexamples.customviews.PendulumView
+  <com.example.algomez.myuiexamples.PendulumView
       android:id="@+id/touch_view"
       android:layout_width="match_parent"
       android:layout_height="match_parent"

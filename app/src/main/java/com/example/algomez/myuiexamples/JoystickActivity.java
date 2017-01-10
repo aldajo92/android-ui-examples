@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.jmedeisis.bugstick.Joystick;
@@ -18,40 +19,76 @@ import java.util.Locale;
 
 public class JoystickActivity extends AppCompatActivity {
 
-  @BindView(R.id.joystick) Joystick joystick;
-  @BindView(R.id.degree_text_view) TextView degreeTextView;
-  @BindView(R.id.offset_text_view) TextView offsetTextView;
+  @BindView(R.id.joystick_left) Joystick joystickLeft;
+  @BindView(R.id.joystick_right) Joystick joystickRight;
+  @BindView(R.id.degree_left_text_view) TextView degreeLeftTextView;
+  @BindView(R.id.offset_left_text_view) TextView offsetLeftTextView;
+  @BindView(R.id.degree_right_text_view) TextView degreeRightTextView;
+  @BindView(R.id.offset_right_text_view) TextView offsetRightTextView;
+
+  @BindString(R.string.degree_text) String degreeTextFormat;
+  @BindString(R.string.offset_text) String offsetTextFormat;
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_joystick);
     ButterKnife.bind(this);
 
-    joystick.setJoystickListener(new JoystickListener() {
+    setOffsetLeftText(0);
+    setDegreeLeftText(0);
+    joystickLeft.setJoystickListener(new JoystickListener() {
       @Override public void onDown() {
 
       }
 
       @Override public void onDrag(float degrees, float offset) {
-        setOffsetText(offset);
-        setDegreeText(degrees);
+        setOffsetLeftText(offset);
+        setDegreeLeftText(degrees);
       }
 
       @Override public void onUp() {
-        setOffsetText(0);
-        setDegreeText(0);
+        setOffsetLeftText(0);
+        setDegreeLeftText(0);
+      }
+    });
+
+    setOffsetRighttText(0);
+    setDegreeRightText(0);
+    joystickRight.setJoystickListener(new JoystickListener() {
+      @Override public void onDown() {
+
+      }
+
+      @Override public void onDrag(float degrees, float offset) {
+        setOffsetRighttText(offset);
+        setDegreeRightText(degrees);
+      }
+
+      @Override public void onUp() {
+        setOffsetRighttText(0);
+        setDegreeRightText(0);
       }
     });
   }
 
-  public void setOffsetText(float offsetText){
-    String valueFormat = String.format(Locale.US, "%.3f", offsetText);
-    offsetTextView.setText(valueFormat);
+  public void setOffsetLeftText(float offsetText){
+    String valueFormat = String.format(Locale.US, offsetTextFormat, offsetText);
+    offsetLeftTextView.setText(valueFormat);
   }
 
-  public void setDegreeText(float degreeText){
-    String valueFormat = String.format(Locale.US, "%.3f", degreeText);
-    degreeTextView.setText(valueFormat);
+  public void setDegreeLeftText(float degreeText){
+    String valueFormat = String.format(Locale.US, degreeTextFormat, degreeText);
+    degreeLeftTextView.setText(valueFormat);
+  }
+
+  public void setOffsetRighttText(float offsetText){
+    String valueFormat = String.format(Locale.US, offsetTextFormat, offsetText);
+    offsetRightTextView.setText(valueFormat);
+  }
+
+  public void setDegreeRightText(float degreeText){
+    String valueFormat = String.format(Locale.US, degreeTextFormat, degreeText);
+    degreeRightTextView.setText(valueFormat);
   }
 
   public static Intent getIntent(Context context){

@@ -12,11 +12,12 @@ import butterknife.ButterKnife;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements MainListAdapter.RecyclerViewClickListener{
+public class MainActivity extends AppCompatActivity
+    implements MainListAdapter.RecyclerViewClickListener {
 
-  @BindView(R.id.main_list) RecyclerView mainListRecyclerView;
+  @BindView(R.id.main_list_recycler_view) RecyclerView mainListRecyclerView;
   MainListAdapter mainListAdapter;
-  private List<String> list;
+  private List<ActivityItems> list;
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -35,22 +36,14 @@ public class MainActivity extends AppCompatActivity implements MainListAdapter.R
 
   public void initList() {
     list = new ArrayList<>();
-    for (int i = 0; i < 2; i++) {
-      list.add("Item " + i);
-    }
+    list.add(
+        new ActivityItems("Pendulum", "customized animation", PendulumActivity.getIntent(this)));
+    list.add(
+        new ActivityItems("Joystick", "screen with 2 joysticks", JoystickActivity.getIntent(this)));
   }
 
   @Override public void recyclerViewListClicked(View v, int position) {
-    Intent i;
-    switch (position){
-      case 0:
-        i = PendulumActivity.getIntent(this);
-        startActivity(i);
-        break;
-      case 1:
-        i = JoystickActivity.getIntent(this);
-        startActivity(i);
-        break;
-    }
+    Intent i = list.get(position).getIntent();
+    startActivity(i);
   }
 }

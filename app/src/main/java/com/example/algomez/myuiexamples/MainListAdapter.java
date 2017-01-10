@@ -15,10 +15,10 @@ import java.util.List;
 
 public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHolder> {
 
-  private List<String> adapterList;
+  private List<ActivityItems> adapterList;
   private RecyclerViewClickListener itemListener;
 
-  public MainListAdapter(List<String> adapterList, RecyclerViewClickListener itemListener) {
+  public MainListAdapter(List<ActivityItems> adapterList, RecyclerViewClickListener itemListener) {
     this.adapterList = adapterList;
     this.itemListener = itemListener;
   }
@@ -30,7 +30,8 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
   }
 
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
-    holder.itemTitle.setText(adapterList.get(position));
+    holder.itemName.setText(adapterList.get(position).getName());
+    holder.itemDescription.setText(adapterList.get(position).getDescription());
   }
 
   @Override public int getItemCount() {
@@ -39,7 +40,8 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
 
   class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    @BindView(R.id.pokemon_name) TextView itemTitle;
+    @BindView(R.id.item_name) TextView itemName;
+    @BindView(R.id.item_description) TextView itemDescription;
 
     public ViewHolder(View itemView) {
       super(itemView);

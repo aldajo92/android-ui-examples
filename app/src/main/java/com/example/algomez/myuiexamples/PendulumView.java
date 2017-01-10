@@ -1,4 +1,4 @@
-package com.example.algomez.myuiexamples.customviews;
+package com.example.algomez.myuiexamples;
 
 import android.content.Context;
 import android.graphics.Canvas;

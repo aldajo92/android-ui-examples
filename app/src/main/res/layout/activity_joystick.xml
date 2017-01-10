@@ -6,38 +6,77 @@
     android:layout_height="match_parent">
 
   <com.jmedeisis.bugstick.Joystick
-      android:id="@+id/joystick"
-      android:layout_width="match_parent"
+      android:id="@+id/joystick_left"
+      android:layout_width="100dp"
       android:layout_height="wrap_content"
       android:layout_margin="16dp"
       android:background="@drawable/bg_base"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentBottom="true"
       app:start_on_first_touch="true"
       app:force_square="true"
       app:motion_constraint="None">
 
     <Button
-        android:layout_width="144dp"
-        android:layout_height="144dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/bg_stick" />
 
   </com.jmedeisis.bugstick.Joystick>
 
   <TextView
-      android:id="@+id/degree_text_view"
+      android:id="@+id/degree_left_text_view"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
+      android:layout_above="@+id/joystick_left"
       android:layout_alignParentStart="true"
-      android:text="0000"
+      android:text="@string/degree_text"
       />
 
   <TextView
-      android:id="@+id/offset_text_view"
+      android:id="@+id/offset_left_text_view"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
+      android:layout_above="@id/degree_left_text_view"
+      android:layout_alignParentStart="true"
+      android:text="@string/offset_text"
+      />
+
+  <com.jmedeisis.bugstick.Joystick
+      android:id="@+id/joystick_right"
+      android:layout_width="100dp"
+      android:layout_height="wrap_content"
+      android:layout_margin="16dp"
+      android:background="@drawable/bg_base"
       android:layout_alignParentEnd="true"
-      android:text="0000"
+      android:layout_alignParentBottom="true"
+      app:start_on_first_touch="true"
+      app:force_square="true"
+      app:motion_constraint="None">
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_stick" />
+
+  </com.jmedeisis.bugstick.Joystick>
+
+  <TextView
+      android:id="@+id/degree_right_text_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/joystick_left"
+      android:layout_alignStart="@+id/joystick_right"
+      android:text="@string/degree_text"
+      />
+
+  <TextView
+      android:id="@+id/offset_right_text_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@id/degree_left_text_view"
+      android:layout_alignStart="@+id/joystick_right"
+      android:text="@string/offset_text"
       />
 
 </RelativeLayout>

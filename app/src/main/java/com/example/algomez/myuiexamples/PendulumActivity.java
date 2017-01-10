@@ -10,7 +10,6 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.example.algomez.myuiexamples.customviews.PendulumView;
 import java.util.Locale;
 
 public class PendulumActivity extends AppCompatActivity {
