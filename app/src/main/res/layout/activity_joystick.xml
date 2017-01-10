@@ -12,7 +12,7 @@
       android:layout_height="wrap_content"
       android:layout_alignParentBottom="true"
       android:layout_alignParentStart="true"
-      android:layout_margin="16dp"
+      android:layout_margin="@dimen/joystick_margin"
       android:background="@drawable/bg_base"
       app:force_square="true"
       app:motion_constraint="None"
@@ -28,21 +28,21 @@
   </com.jmedeisis.bugstick.Joystick>
 
   <TextView
-      android:id="@+id/degree_left_text_view"
+      android:id="@+id/joystick_degree_left_text_view"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_above="@+id/joystick_left"
       android:layout_alignParentStart="true"
-      android:text="@string/degree_text"
+      android:text="@string/joystick_degree_text"
       />
 
   <TextView
-      android:id="@+id/offset_left_text_view"
+      android:id="@+id/joystick_offset_left_text_view"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_above="@id/degree_left_text_view"
+      android:layout_above="@id/joystick_degree_left_text_view"
       android:layout_alignParentStart="true"
-      android:text="@string/offset_text"
+      android:text="@string/joystick_offset_text"
       />
 
   <com.jmedeisis.bugstick.Joystick
@@ -51,7 +51,7 @@
       android:layout_height="wrap_content"
       android:layout_alignParentBottom="true"
       android:layout_alignParentEnd="true"
-      android:layout_margin="16dp"
+      android:layout_margin="@dimen/joystick_margin"
       android:background="@drawable/bg_base"
       app:force_square="true"
       app:motion_constraint="None"
@@ -67,21 +67,21 @@
   </com.jmedeisis.bugstick.Joystick>
 
   <TextView
-      android:id="@+id/degree_right_text_view"
+      android:id="@+id/joystick_degree_right_text_view"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_above="@+id/joystick_left"
       android:layout_alignStart="@+id/joystick_right"
-      android:text="@string/degree_text"
+      android:text="@string/joystick_degree_text"
       />
 
   <TextView
-      android:id="@+id/offset_right_text_view"
+      android:id="@+id/joystick_offset_right_text_view"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_above="@id/degree_left_text_view"
+      android:layout_above="@id/joystick_degree_left_text_view"
       android:layout_alignStart="@+id/joystick_right"
-      android:text="@string/offset_text"
+      android:text="@string/joystick_offset_text"
       />
 
 </RelativeLayout>

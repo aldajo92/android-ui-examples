@@ -21,13 +21,13 @@ public class JoystickActivity extends AppCompatActivity {
 
   @BindView(R.id.joystick_left) Joystick joystickLeft;
   @BindView(R.id.joystick_right) Joystick joystickRight;
-  @BindView(R.id.degree_left_text_view) TextView degreeLeftTextView;
-  @BindView(R.id.offset_left_text_view) TextView offsetLeftTextView;
-  @BindView(R.id.degree_right_text_view) TextView degreeRightTextView;
-  @BindView(R.id.offset_right_text_view) TextView offsetRightTextView;
+  @BindView(R.id.joystick_degree_left_text_view) TextView degreeLeftTextView;
+  @BindView(R.id.joystick_offset_left_text_view) TextView offsetLeftTextView;
+  @BindView(R.id.joystick_degree_right_text_view) TextView degreeRightTextView;
+  @BindView(R.id.joystick_offset_right_text_view) TextView offsetRightTextView;
 
-  @BindString(R.string.degree_text) String degreeTextFormat;
-  @BindString(R.string.offset_text) String offsetTextFormat;
+  @BindString(R.string.joystick_degree_text) String degreeTextFormat;
+  @BindString(R.string.joystick_offset_text) String offsetTextFormat;
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

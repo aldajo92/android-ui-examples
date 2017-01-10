@@ -7,4 +7,5 @@
   <dimen name="item_description_size">12sp</dimen>
   <dimen name="item_description_margin">5dp</dimen>
   <dimen name="item_margin">10dp</dimen>
+  <dimen name="joystick_margin">16dp</dimen>
 </resources>
