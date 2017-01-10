@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
   <com.jmedeisis.bugstick.Joystick
       android:id="@+id/joystick_left"
       android:layout_width="100dp"
       android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentStart="true"
       android:layout_margin="16dp"
       android:background="@drawable/bg_base"
-      android:layout_alignParentStart="true"
-      android:layout_alignParentBottom="true"
-      app:start_on_first_touch="true"
       app:force_square="true"
-      app:motion_constraint="None">
+      app:motion_constraint="None"
+      app:start_on_first_touch="true"
+      >
 
     <Button
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/bg_stick" />
+        android:background="@drawable/bg_stick"
+        />
 
   </com.jmedeisis.bugstick.Joystick>
 
@@ -46,18 +49,20 @@
       android:id="@+id/joystick_right"
       android:layout_width="100dp"
       android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentEnd="true"
       android:layout_margin="16dp"
       android:background="@drawable/bg_base"
-      android:layout_alignParentEnd="true"
-      android:layout_alignParentBottom="true"
-      app:start_on_first_touch="true"
       app:force_square="true"
-      app:motion_constraint="None">
+      app:motion_constraint="None"
+      app:start_on_first_touch="true"
+      >
 
     <Button
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/bg_stick" />
+        android:background="@drawable/bg_stick"
+        />
 
   </com.jmedeisis.bugstick.Joystick>
 
