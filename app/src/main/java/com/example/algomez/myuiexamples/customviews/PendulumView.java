@@ -6,13 +6,17 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
 /**
  * Created by algomez on 1/6/17.
  */
 
-public class TouchView extends View {
+public class PendulumView extends View {
+
+  private static final String TAG = PendulumView.class.getSimpleName();
 
   private Paint paint = new Paint();
   private Path path = new Path();
@@ -28,7 +32,7 @@ public class TouchView extends View {
 
   private final float stroke = 6f;
 
-  public TouchView(Context context, AttributeSet attrs) {
+  public PendulumView(Context context, AttributeSet attrs) {
     super(context, attrs);
     initComponents();
   }
@@ -50,38 +54,34 @@ public class TouchView extends View {
     canvas.drawPath(path, paint);
   }
 
-  //@Override public boolean onTouchEvent(MotionEvent event) {
-  //  float eventX = event.getX();
-  //  float eventY = event.getY();
-  //
-  //  switch (event.getAction()) {
-  //    case MotionEvent.ACTION_DOWN:
-  //      path.moveTo(eventX, eventY);
-  //      return true;
-  //    case MotionEvent.ACTION_MOVE:
-  //      path.lineTo(eventX, eventY);
-  //      break;
-  //    case MotionEvent.ACTION_UP:
-  //      // nothing to do
-  //      break;
-  //    default:
-  //      return false;
-  //  }
-  //
-  //  invalidate();
-  //  return true;
-  //}
+  @Override public boolean onTouchEvent(MotionEvent event) {
+    float eventX = event.getX();
+    float eventY = event.getY();
 
-  @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-    int localParentWidth = MeasureSpec.getSize(widthMeasureSpec);
-    int localParentHeight = MeasureSpec.getSize(heightMeasureSpec);
-    if (!(localParentHeight == parentHeight && localParentWidth == parentWidth)) {
-      parentWidth = localParentWidth;
-      parentHeight = localParentHeight;
-      this.setMeasuredDimension(parentWidth, parentHeight);
-      updateMeasures(degrees);
+    switch (event.getAction()) {
+      case MotionEvent.ACTION_DOWN:
+        return true;
+      case MotionEvent.ACTION_MOVE:
+        float degree = (float) Math.atan((originX - eventX) / (originY - eventY));
+        Log.i(TAG, "onTouchEvent: " + degree);
+        updateMeasures(degree);
+        break;
+      case MotionEvent.ACTION_UP:
+        Log.i(TAG, "onTouchEvent: UP");
+        break;
+      default:
+        return false;
     }
-    super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+    invalidate();
+    return true;
+  }
+
+  @Override public void onSizeChanged(int w, int h, int oldw, int oldh) {
+    super.onSizeChanged(w, h, oldw, oldh);
+    parentWidth = w;
+    parentHeight = h;
+    updateMeasures(degrees);
   }
 
   public void setDegrees(float degrees) {
@@ -93,7 +93,7 @@ public class TouchView extends View {
     massRadius = 0.1f * pendulumL;
     originX = parentWidth / 2f;
     originY = 0;
-    pendulumX = (parentWidth / 2f) - (pendulumL * (float) Math.sin(degrees));
+    pendulumX = (parentWidth / 2f) + (pendulumL * (float) Math.sin(degrees));
     pendulumY = pendulumL * (float) Math.cos(degrees);
 
     path.reset();

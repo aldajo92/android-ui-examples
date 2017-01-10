@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements MainListAdapter.R
 
   public void initList() {
     list = new ArrayList<>();
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 2; i++) {
       list.add("Item " + i);
     }
   }

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.example.algomez.myuiexamples.customviews.TouchView;
+import com.example.algomez.myuiexamples.customviews.PendulumView;
 import java.util.Locale;
 
 public class PendulumActivity extends AppCompatActivity {
@@ -19,7 +19,7 @@ public class PendulumActivity extends AppCompatActivity {
   private final String TIME_VARIABLE = "float.time";
 
   @BindView(R.id.activity_main_button) Button mainButton;
-  @BindView(R.id.touch_view) TouchView touchView;
+  @BindView(R.id.touch_view) PendulumView pendulumView;
   @BindView(R.id.values_fields) TextView valuesField;
 
   private Runnable runnableCode;
@@ -41,21 +41,21 @@ public class PendulumActivity extends AppCompatActivity {
 
     degree = degree0;
     handler = new Handler();
-    runnableCode = () -> pendulumTask();
+    runnableCode = this::pendulumTask;
 
     if (null != savedInstanceState) {
       isRun = savedInstanceState.getBoolean(RUN_VARIABLE);
       time = savedInstanceState.getFloat(TIME_VARIABLE);
       printValue(degree);
-      touchView.setDegrees(degree);
+      pendulumView.setDegrees(degree);
       if (isRun) {
         handler.removeCallbacks(runnableCode);
         handler.post(runnableCode);
       }
     } else {
-      touchView.setDegrees(degree0);
+      pendulumView.setDegrees(degree0);
     }
-    touchView.invalidate();
+    pendulumView.invalidate();
   }
 
   @Override public void onSaveInstanceState(Bundle savedInstanceState) {
@@ -83,7 +83,7 @@ public class PendulumActivity extends AppCompatActivity {
     time += 0.01;
     degree = (float) (degree0 * Math.cos(frequency * time));
     printValue(degree);
-    touchView.updateMeasures(degree);
+    pendulumView.updateMeasures(degree);
     handler.postDelayed(runnableCode, 10);
   }
 
