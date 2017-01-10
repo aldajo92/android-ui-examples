@@ -20,15 +20,14 @@
   <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_margin="10dp"
+      android:layout_margin="@dimen/item_margin"
       >
 
     <TextView
         android:id="@+id/item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Example"
-        android:textSize="20dp"
+        android:textSize="@dimen/item_name_size"
         />
 
     <TextView
@@ -36,9 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/item_name"
-        android:layout_marginTop="5dp"
-        android:text="description"
-        android:textSize="12dp"
+        android:layout_marginTop="@dimen/item_description_margin"
+        android:textSize="@dimen/item_description_size"
         />
 
   </RelativeLayout>
