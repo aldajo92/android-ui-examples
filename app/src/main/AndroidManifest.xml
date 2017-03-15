@@ -19,6 +19,8 @@
 
     <activity android:name=".PendulumActivity"/>
 
+    <activity android:name=".ExpandableItemActivity"/>
+
   </application>
 
 </manifest>
