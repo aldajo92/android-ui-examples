@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="30dp"
-        android:text="Hello"/>
+        android:text="Hello"
+        android:textSize="@dimen/text_size_huge" />
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="2dp">
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        app:cardCornerRadius="@dimen/corner_radius_small">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -26,23 +27,23 @@
                 android:id="@+id/header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="TextExample"/>
+                android:layout_margin="@dimen/text_size_small"
+                tools:text="TextExample" />
 
             <ImageView
                 android:id="@+id/expand_button"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
                 android:layout_alignParentEnd="true"
                 android:layout_alignTop="@+id/header"
-                android:src="@drawable/ic_arrow_down"
-                android:layout_marginEnd="20dp"/>
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ic_arrow_down" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/item_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/header"/>
+                android:layout_below="@+id/header" />
 
         </RelativeLayout>
 

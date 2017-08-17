@@ -3,4 +3,8 @@
   <dimen name="activity_horizontal_margin">16dp</dimen>
   <dimen name="activity_vertical_margin">16dp</dimen>
   <dimen name="card_margin">5dp</dimen>
+  <dimen name="text_size_huge">30sp</dimen>
+  <dimen name="text_size_small">20dp</dimen>
+  <dimen name="corner_radius_small">2dp</dimen>
+  <dimen name="icon_size">24dp</dimen>
 </resources>

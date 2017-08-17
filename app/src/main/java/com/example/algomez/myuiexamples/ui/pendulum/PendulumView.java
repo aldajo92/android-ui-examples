@@ -1,4 +1,4 @@
-package com.example.algomez.myuiexamples.customviews;
+package com.example.algomez.myuiexamples.ui.pendulum;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,11 +8,7 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
-/**
- * Created by algomez on 1/6/17.
- */
-
-public class TouchView extends View {
+public class PendulumView extends View {
 
   private Paint paint = new Paint();
   private Path path = new Path();
@@ -28,7 +24,7 @@ public class TouchView extends View {
 
   private final float stroke = 6f;
 
-  public TouchView(Context context, AttributeSet attrs) {
+  public PendulumView(Context context, AttributeSet attrs) {
     super(context, attrs);
     initComponents();
   }

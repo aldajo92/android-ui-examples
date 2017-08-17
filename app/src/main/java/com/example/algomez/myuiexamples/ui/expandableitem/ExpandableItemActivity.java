@@ -1,4 +1,4 @@
-package com.example.algomez.myuiexamples;
+package com.example.algomez.myuiexamples.ui.expandableitem;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.view.animation.Transformation;
+
+import com.example.algomez.myuiexamples.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
