@@ -10,21 +10,30 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ItemViewHolder extends RecyclerView.ViewHolder {
+public class ItemViewHolder extends GenericItemViewHolder<String> {
 
     @BindView(R.id.text_view_name)
-    public TextView itemTitle;
+    TextView itemTitle;
 
     private RecyclerViewClickListener listener;
 
     public ItemViewHolder(View itemView){
         super(itemView);
         ButterKnife.bind(this, itemView);
-//        this.listener = listener;
+    }
+
+    @Override
+    public void bindData(String data) {
+        itemTitle.setText(data);
+    }
+
+    @Override
+    public void setListener(RecyclerViewClickListener listener) {
+        this.listener = listener;
     }
 
     @OnClick(R.id.card_view)
-    public void onClick(){
+    void onClick(){
         if(listener != null)
         listener.itemClicked();
     }

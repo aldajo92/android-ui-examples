@@ -6,13 +6,14 @@ import android.view.View;
 
 import com.example.algomez.myuiexamples.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class CarouselItemViewHolder extends RecyclerView.ViewHolder {
+public class CarouselItemViewHolder extends GenericItemViewHolder<ArrayList<GenericItemView>> {
 
     @BindView(R.id.recycler_view_carrousel)
     RecyclerView recyclerView;
@@ -35,7 +36,13 @@ public class CarouselItemViewHolder extends RecyclerView.ViewHolder {
         recyclerView.setAdapter(adapterCarousel);
     }
 
-    public void addItems(List<GenericItemView> items){
-        adapterCarousel.addItems(items);
+    @Override
+    public void bindData(ArrayList<GenericItemView> data) {
+        adapterCarousel.addItems(data);
+    }
+
+    @Override
+    public void setListener(RecyclerViewClickListener listener) {
+
     }
 }

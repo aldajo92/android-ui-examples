@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         carouselItems.add(new AbstractItemView<>("Hola", MainListAdapter.SINGLE_ITEM));
         carouselItems.add(new AbstractItemView<>("Hola", MainListAdapter.SINGLE_ITEM));
         carouselItems.add(new AbstractItemView<>("Hola", MainListAdapter.SINGLE_ITEM));
+        carouselItems.add(new AbstractItemView<>("Hola", MainListAdapter.SINGLE_ITEM));
 
         mainListAdapter.addItem(new AbstractItemView<>(carouselItems, MainListAdapter.CARROUSEL_ITEM));
 
